@@ -10,7 +10,7 @@
   <ion-list>
     <ion-item>
       <ion-thumbnail item-start>
-        <ion-img [src]="newSala.imagen == '' ? '../../assets/imgs/placeholder.png' : newSala.imagen" (click)="takePicture()"></ion-img>
+        <ion-img [src]="newSala.imagen == '' ? 'assets/imgs/placeholder.png' : newSala.imagen" (click)="takePicture()"></ion-img>
       </ion-thumbnail>
     </ion-item>
     <ion-item>
@@ -30,7 +30,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Ultima limpieza: </ion-label>
-      <ion-datetime displayFormat="MMM/DD/YYYY" [(ngModel)]="newSala.ultimaLimpieza" paceholder="MMM/DD/YYYY"></ion-datetime>
+      <ion-datetime #picker displayFormat="MMM/DD/YYYY" [(ngModel)]="newSala.ultimaLimpieza" paceholder="MMM/DD/YYYY"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Ocupada: </ion-label>
