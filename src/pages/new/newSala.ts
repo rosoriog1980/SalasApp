@@ -80,6 +80,11 @@ export class NewSalaPage {
       ocupada: false
     }
 
-    this.ubicaciones = ['Piso 11 Norte', 'Piso 11 Sur'];
+    this.ubicaciones = ['Piso 11 Norte (BOG)',
+    'Piso 11 Sur (BOG)',
+    'Piso 1 (MDE)',
+    'Piso 2 (MDE)',
+    'Piso 3 (MDE)',
+    'Piso 4 (MDE)'];
   }
 }

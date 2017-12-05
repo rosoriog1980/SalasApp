@@ -9,7 +9,7 @@ import { Http } from '@angular/http';
 */
 @Injectable()
 export class SalasProvider {
-  baseUrl: String = "http://localhost:3000/";
+  baseUrl: String = "https://salas-back.herokuapp.com/";
 
   constructor(public http: Http) {
 

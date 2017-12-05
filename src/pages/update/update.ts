@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular/navigation/nav-params';
-import { SalasProvider } from '../../providers/salas/salas'
+import { SalasProvider } from '../../providers/salas/salas';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 @Component({
@@ -15,8 +16,30 @@ export class UpdatePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public salasService: SalasProvider,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    public camera: Camera) {
       this.sala = this.navParams.get('sala');
+  }
+
+  takePicture()
+  {
+    const options: CameraOptions = {
+    quality: 100,
+    targetHeight: 400,
+    targetWidth: 400,
+    destinationType: this.camera.DestinationType.NATIVE_URI,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+    }
+
+  this.camera.getPicture(options).then((imageData) => {
+
+    this.sala.imagen = imageData
+
+
+    }, (err) => {
+      console.log("Error: ", err);
+    });
   }
 
   Cancelar(){

@@ -10,7 +10,7 @@
   <ion-list>
     <ion-item>
       <ion-thumbnail item-start>
-        <ion-img [src]="sala.imagen == '' ? '../../assets/imgs/placeholder.png' : sala.imagen"></ion-img>
+        <ion-img [src]="sala.imagen == '' ? '../../assets/imgs/placeholder.png' : sala.imagen" (click)="takePicture()"></ion-img>
       </ion-thumbnail>
     </ion-item>
     <ion-item>
