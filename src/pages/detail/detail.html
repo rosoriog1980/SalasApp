@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Detalle Sala
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="sala.imagen == '' ? '../../assets/imgs/avatarDefault.jpg' : sala.imagen">
+    <ion-card-content>
+      <ion-card-title>
+        {{sala.nombre}}
+      </ion-card-title>
+      <p>
+        <strong>Ubicación: </strong> {{sala.ubicacion}}
+      </p>
+      <p>
+        <strong>Capacidad: </strong> {{sala.numeroAsientos}} personas.
+      </p>
+      <p>
+          <strong>Estado: </strong>{{sala.ocupada ? 'OCUPADA' : 'DISPONIBLE'}}
+      </p>
+      <button ion-button block [color]="sala.ocupada ? 'secondary' : 'danger'" (click)="OcuparSala()">{{sala.ocupada ? 'Liberar' : 'Ocupar'}}</button>
+      <p>
+        <strong>Última limpieza: </strong> {{sala.ultimaLimpieza | date: 'dd/MM/yyyy'}}
+      </p>
+      <p>
+        <button ion-button (click)="Cancel()">Regresar</button>
+        <button ion-button color="secondary" (click)="UpdateSala()">Modificar</button>
+        <button ion-button color="danger" (click)="DeleteSala()">Borrar</button>
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

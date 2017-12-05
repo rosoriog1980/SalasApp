@@ -1,17 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Salas</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list *ngFor="let sala of salasList">
+    <ion-card (click)="details(sala)">
+      <ion-item>
+          <ion-avatar item-start>
+            <img [src]="sala.imagen == '' ? '../../assets/imgs/avatarDefault.jpg' : sala.imagen">
+          </ion-avatar>
+        </ion-item>
+      <ion-card-content [ngClass]="sala.ocupada ? 'busy' : 'available'">
+        <ion-card-title>
+          {{sala.nombre}}
+        </ion-card-title>
+        <p>
+          Piso: {{sala.ubicacion}}
+        </p>
+        <p>
+          Capacidad: {{sala.numeroAsientos}} personas.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

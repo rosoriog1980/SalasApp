@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Nueva Sala
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <ion-img [src]="newSala.imagen == '' ? '../../assets/imgs/placeholder.png' : newSala.imagen" (click)="takePicture()"></ion-img>
+      </ion-thumbnail>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre: </ion-label>
+      <ion-input type="text" placeholder="Nombre Sala" [(ngModel)]="newSala.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número de Asientos: </ion-label>
+      <ion-input type="number" [(ngModel)]="newSala.numeroAsientos"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ubicación: </ion-label>
+      <ion-select [(ngModel)]="newSala.ubicacion">
+        <ion-option value="">Seleccione...</ion-option>
+        <ion-option *ngFor="let u of ubicaciones" value="{{u}}">{{u}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ultima limpieza: </ion-label>
+      <ion-datetime displayFormat="MMM/DD/YYYY" [(ngModel)]="newSala.ultimaLimpieza" paceholder="MMM/DD/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ocupada: </ion-label>
+      <ion-toggle [(ngModel)]="newSala.ocupada"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <button ion-button color="danger" (click)="Cancelar()">Cancelar</button>
+      <button ion-button color="secondary" (click)="SaveSala()">Guardar</button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
