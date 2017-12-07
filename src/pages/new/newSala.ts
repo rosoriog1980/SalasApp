@@ -27,14 +27,14 @@ export class NewSalaPage {
     quality: 100,
     targetHeight: 400,
     targetWidth: 400,
-    destinationType: this.camera.DestinationType.NATIVE_URI,
+    destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
     }
 
   this.camera.getPicture(options).then((imageData) => {
 
-    this.newSala.imagen = imageData
+    this.newSala.imagen = `data:image/jpeg;base64,${imageData}`
 
 
     }, (err) => {
